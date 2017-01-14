@@ -1,12 +1,17 @@
-import com.sun.xml.internal.rngom.parse.host.Base;
+package com.russlekelly.railroadproject.model;
+
 
 /**
- * Created by RuslanKuleshov on 13.01.17.
+ * Base class that extends {@link BaseEntity} adding property 'name'.
+ * Used as a base class for all objects that need this property.
+ *
+ * @author Ruslan Kuleshov
  */
+
 public class NamedEntity extends BaseEntity {
     private String name;
-    public NamedEntity(){
 
+    public NamedEntity(){
     }
 
     public NamedEntity(String name){
@@ -23,8 +28,6 @@ public class NamedEntity extends BaseEntity {
 
     @Override
     public String toString() {
-        return "NamedEntity{" +
-                "Id: " + super.getId() +  "Name: " +
-                name;
+        return this.name;
     }
 }
