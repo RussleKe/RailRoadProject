@@ -9,6 +9,7 @@ package com.russlekelly.railroadproject.model;
  */
 
 public class NamedEntity extends BaseEntity {
+
     private String name;
 
     public NamedEntity(){
