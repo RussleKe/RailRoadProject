@@ -3,7 +3,11 @@ package com.russlekelly.railroadproject.dao.impl;
 import com.russlekelly.railroadproject.dao.StationDAO;
 import com.russlekelly.railroadproject.model.Station;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
+import java.io.FileNotFoundException;
 
 /**
  * Implementation of {@link StationDAO} interface.
@@ -22,6 +26,19 @@ public class StationDAOImpl implements StationDAO {
         Long stationId = null;
         String stationName = null;
         String stationDescription = null;
+
+        FileReader fr = new FileReader("stations.txt");
+        try {
+
+            while (fr.read() != -1) {
+                System.out.println(stationId + ", " + stationName + " , " + stationDescription + "/");
+            }
+        }
+
+        catch (IOException e) {
+            System.out.println("Ошибка ввода-вывода: " + e);
+        }
+
 
         // TODO: get this fields from text file
 
@@ -44,6 +61,12 @@ public class StationDAOImpl implements StationDAO {
         if (station != null) {
             stationData = station.getId() + "," + station.getName() + "," + station.getDescription() + "/";
         }
+    char buffer[] = new char [stationData.length()];
+        stationData.getChars(0,stationData.length(),buffer,0_);
+        try{
+            FileWriter fw = new FileWriter("stations.txt");
+        }
+
 
         // TODO: write this string to file stations.txt
     }
