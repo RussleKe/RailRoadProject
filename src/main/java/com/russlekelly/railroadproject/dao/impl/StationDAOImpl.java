@@ -65,6 +65,8 @@ public class StationDAOImpl implements StationDAO {
         stationData.getChars(0,stationData.length(),buffer,0_);
         try{
             FileWriter fw = new FileWriter("stations.txt");
+
+            fw.write(buffer[]);
         }
 
 
@@ -73,6 +75,8 @@ public class StationDAOImpl implements StationDAO {
 
     @Override
     public void update(Station station) {
+
+        
 
     }
 
