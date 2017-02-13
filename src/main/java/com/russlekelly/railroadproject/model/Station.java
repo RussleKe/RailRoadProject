@@ -28,6 +28,8 @@ public class Station extends NamedEntity {
 
     @Override
     public String toString() {
-        return super.getId() + "," + super.getName() + "," + this.description;
+        return "Station{" +
+                "description='" + description + '\'' +
+                '}';
     }
 }

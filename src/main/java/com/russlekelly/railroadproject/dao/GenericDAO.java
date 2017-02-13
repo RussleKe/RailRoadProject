@@ -1,6 +1,5 @@
 package com.russlekelly.railroadproject.dao;
 
-import java.util.Collection;
 
 /**
  * Generic DAO interface. Used as a base interface for all DAO objects.
@@ -8,15 +7,14 @@ import java.util.Collection;
  * @author Ruslan Kuleshov.
  */
 
-public interface GenericDAO<T, ID> {
+public interface GenericDAO<T> {
 
-    T getByID(ID id);
+    T getEntityById(Long id);
 
-    Collection<T> getAll();
+    void saveEntity(T entity);
 
-    void save(T entity);
+    void updateEntity(T entity);
 
-    void update(T entity);
+    void removeEntity(T entity);
 
-    void remove(T entity);
 }
