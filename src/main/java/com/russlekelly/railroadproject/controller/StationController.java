@@ -3,8 +3,11 @@ package com.russlekelly.railroadproject.controller;
 import com.russlekelly.railroadproject.dao.StationDAO;
 
 import com.russlekelly.railroadproject.model.Station;
+import com.russlekelly.railroadproject.dao.StationDAO;
 
 import java.util.ArrayList;
+
+
 /**
  * Created by RuslanKuleshov on 12.02.17.
  */
@@ -21,6 +24,7 @@ public class StationController {
     public void saveEntity(Station station){
         stationDAO.saveEntity(station);
     }
+
     public void updateEntity(Station station){
         stationDAO.updateEntity(station);
     }

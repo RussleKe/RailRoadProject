@@ -1,1 +1,7 @@
 100,Moscow,This is Moscow station/
+22,Spb,Hello world/
+55,Tula,Tula world/
+57,Kansas,Kansas down/
+87,Pasadena,It's California/
+99,New York,New York Station/
+0,0,0/

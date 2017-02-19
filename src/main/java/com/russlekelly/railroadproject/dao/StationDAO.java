@@ -59,15 +59,23 @@ public class StationDAO implements GenericDAO<Station> {
                     existingFile.append(read);
                 }
 
-                String stationToString = station.getId() + "," +
-                        station.getId() + "," +
-                        station.getName() + "," +
-                        station.getDescription();
-                String newFile;
+                String tempFileData = existingFile.toString();
+                String [] tempFileDataList = tempFileData.split("/");
+
+                String stationToString = station.getId() + ","
+                        + station.getName() + ","
+                        + station.getDescription() + "/";
+
+                String newFile= "";
                 if (existingFile.toString().equals("")) {
                     newFile = existingFile.append(stationToString).toString();
                 } else {
-                    newFile = existingFile.append("\n").append(stationToString).toString();
+                    for (int i = 0; i < tempFileDataList.length; i++) {
+                        newFile += tempFileDataList[i];
+                        newFile += "/";
+                        newFile += "\n";
+                    }
+                    newFile += stationToString;
                 }
 
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
@@ -130,6 +138,8 @@ public class StationDAO implements GenericDAO<Station> {
                     station.setId(Long.parseLong(splitedLine[0]));
                     station.setName(splitedLine[1]);
                     station.setDescription(splitedLine[2]);
+
+                    stations.add(station);
 
                 }
             }

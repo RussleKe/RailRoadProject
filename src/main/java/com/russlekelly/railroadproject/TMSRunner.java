@@ -14,7 +14,7 @@ public class TMSRunner {
 
         //consoleHelper.showTicketMenu();
 
-        consoleHelper.getStationView().showStationoMenu();
+        consoleHelper.getStationView().showStationMenu();
 
     }
 }

@@ -17,7 +17,7 @@ public class StationView {
 
     StationController stationController =new StationController();
 
-    public void showStationoMenu() throws ParseException {
+    public void showStationMenu() throws ParseException {
 
         System.out.println("==================CREATE NEW STATION=====================");
         System.out.println("Select option:");
@@ -69,7 +69,7 @@ public class StationView {
         while (station.getId() == null) {
             System.out.println("Enter station Id ");
             Long tempId = scanner.nextLong();
-            if (stationController.getEntityById(tempId) != null) {
+            if (stationController.getEntityById(tempId).getId() != null) {
                 System.out.println("Ticket with such ID is already existed. Please enter another ID.");
             } else {
                 station.setId(tempId);
@@ -77,9 +77,13 @@ public class StationView {
         }
         scanner = new Scanner(System.in);
 
-        while (station.getName() == null) {
+        while (station.getName() == null || station.getName().isEmpty()) {
             System.out.println("Enter type of station:");
             station.setName(scanner.nextLine());
+        }
+        while (station.getDescription() == null || station.getDescription().isEmpty()) {
+            System.out.println("Enter description of station:");
+            station.setDescription(scanner.nextLine());
         }
 
 
@@ -108,16 +112,16 @@ public class StationView {
         }
         System.out.println("==================STATIONS=====================");
         System.out.println("Select option:");
-        System.out.println("1 - Create new cargo");
-        System.out.println("2 - Find a cargo");
-        System.out.println("3 - View all cargos");
+        System.out.println("1 - Create new station");
+        System.out.println("2 - Find a station");
+        System.out.println("3 - View all stations");
         System.out.println("0 - Move to previous menu");
     }
 
     public void showStationInfo(Station station) {
-        System.out.println("=== Cargo #" + station.getId() + " ===\n");
-        System.out.println("Type cargo: " + station.getName());
-        System.out.println("Volume cargo: " + station.getDescription());
+        System.out.println("=== Station #" + station.getId() + " ===\n");
+        System.out.println("Station name: " + station.getName());
+        System.out.println("Station info: " + station.getDescription());
 
         System.out.println();
 
