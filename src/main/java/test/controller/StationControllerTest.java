@@ -10,5 +10,7 @@ public class StationControllerTest {
         StationController stationController = new StationController();
 
         System.out.println(stationController.getAllEntities());
+        System.out.println(stationController.getAllEntities());
+        System.out.println(stationController.getAllEntities());
     }
 }
